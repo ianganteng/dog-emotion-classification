@@ -1,0 +1,22 @@
+name: Sync to Hugging Face Hub
+
+on:
+  push:
+    branches: [main] # or the branch you want to sync
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout your GitHub repo
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # needed for full git history and LFS
+          lfs: true # include Git LFS files
+
+      # Step 2: Push to Hugging Face Space
+      - name: Push to hub
+        env:
+          DOG_SYNC: ${{ secrets.DOG_SYNC }}
+        run: |
+          git push -f https://ianhee:$DOG_SYNC@huggingface.co/spaces/ianhee/dog_emotion_classifier main
