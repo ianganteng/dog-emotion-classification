@@ -16,7 +16,7 @@ import gradio as gr
 from tensorflow.keras.applications.resnet50 import preprocess_input
 
 
-MODEL_URL = "https://drive.google.com/uc?id=1zRlWJSKkrz6BX39ybSWRACdxdZEL6RBq" 
+MODEL_URL = "https://drive.google.com/uc?id=1zRlWJSKkrz6BX39ybSWRACdxdZEL6RBq"
 MODEL_PATH = "dog_emotion_prediction_final.keras"
 CLASS_NAMES = ["Angry", "Happy", "Sad", "Neutral"]
 
